@@ -25,10 +25,8 @@ Svg.addElement(svg2, "use", {"href": "#smiley", transform: "translate(200,10) sc
 ## Animate Elements from Sprite
 
 ```
-let star = Svg.addElement(svg3, "use", {"href": "#star", x: -47, y: -45, transform: "translate(60,60)"});
 Svg.addElement(star, "animateTransform", {
     attributeName: "transform", type: "rotate",
     values: "0 0 0; 360 0 0", additive: "sum", dur: "6s", repeatCount: "indefinite"
 });
-Svg.addElement(star, "animateMotion", { dur:"10s", values:"0,0; 250,0; 0,0", repeatCount:"indefinite" });
-```
+Svg.addElement(star, "animateMotion", {dur: "10s", values: "0,0; 250,0; 0,0", repeatCount: "indefinite"});```

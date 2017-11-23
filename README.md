@@ -3,7 +3,7 @@
 SVG tool with loading sprites from external files. Written in ECMA 6 vanilla JS
 (uses StealJS to compile). 
 
-Fast, small, no runtime dependencies.
+Fast, small, no runtime dependencies. (< 100 lines of code)
 
 Examples in [index.html](index.html) and [index.js](index.js)
 

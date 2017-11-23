@@ -21,6 +21,7 @@ export class Svg {
         containerElement.appendChild(svg);
         return svg;
     }
+
     /**
      * @param parent
      * @param name
@@ -29,7 +30,7 @@ export class Svg {
      */
     static addElement(parent, name, attributes) {
         let element = document.createElementNS(NAMESPACE, name);
-        for(let attribute in attributes) {
+        for (let attribute in attributes) {
             element.setAttribute(attribute, attributes[attribute]);
         }
         parent.appendChild(element);
@@ -46,8 +47,53 @@ export class Svg {
     /**
      * Load sprite into html document (as `svg/defs), elements can be referenced by `use` from all Svgs in page
      * @param url
+     * @param elementIds array of element-ids, relevant for `use` in the svgs
      */
-    static loadSprite(url) {
+    static loadSprite(url, elementIds) {
+        const request = new XMLHttpRequest();
+        request.open("GET", url);
+        request.send();
+        request.onload = (e) => {
+            const response = request.response;
+            const parser = new DOMParser();
+            const svgDom = parser.parseFromString(response, "image/svg+xml");
+            if (svgDom.childNodes[0].nodeName !== "svg") {
+                console.error("error loading svg, not valid, root node must be <svg>");
+            }
+            // add relevant nodes to sprite-svg
+            const spriteSvg = this.createSvg(document.body);
+            spriteSvg.setAttribute("style", "display: none");
+            spriteSvg.removeAttribute("width");
+            spriteSvg.removeAttribute("height");
+            const defs = this.addElement(spriteSvg, "defs");
+            // filter relevant nodes
+            elementIds.forEach((elementId) => {
+                let elementNode = svgDom.getElementById(elementId);
+                if(!elementNode) {
+                    console.error("error, node id=" + elementId + " not found in sprite");
+                } else {
+                    // remove transform
+                    elementNode.removeAttribute("transform");
+                    if(!elementNode.hasAttribute("fill")) {
+                        elementNode.setAttribute("fill", "none"); // bugfix for Sketch SVGs
+                    }
+                    // filter all ids in childs of the node
+                    let filterChilds = (childNodes) => {
+                        childNodes.forEach((childNode) => {
+                            if(childNode.nodeType === Node.ELEMENT_NODE) {
+                                childNode.removeAttribute("id");
+                                if (childNode.hasChildNodes()) {
+                                    filterChilds(childNode.childNodes);
+                                }
+                            }
+                        });
+                    };
+                    filterChilds(elementNode.childNodes);
+                    defs.appendChild(elementNode);
+                }
+            });
+            console.log(spriteSvg);
 
+        }
     }
 }

@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="296px" height="191px" viewBox="0 0 296 191" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="317px" height="201px" viewBox="0 0 317 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <title>Slice</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="star" stroke="#000000" stroke-width="4" fill="#FFF14A" points="61 91 31.6107374 106.45085 37.2235871 73.7254249 13.4471742 50.5491503 46.3053687 45.7745751 61 16 75.6946313 45.7745751 108.552826 50.5491503 84.7764129 73.7254249 90.3892626 106.45085"></polygon>
-        <circle id="circle" stroke="#000000" stroke-width="4" fill="#E25454" cx="230" cy="51" r="35"></circle>
-        <polygon id="triangle" stroke="#000000" stroke-width="4" fill="#6D6BFF" points="153 86 195 170 111 170"></polygon>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="star" transform="translate(18.000000, 25.000000)" stroke-width="4" stroke="#000000" fill="#FFF14A" fill-rule="nonzero">
+            <polygon id="element" points="48 75 18.6107374 90.45085 24.2235871 57.7254249 0.4471742 34.5491503 33.3053687 29.7745751 48 0 62.6946313 29.7745751 95.552826 34.5491503 71.7764129 57.7254249 77.3892626 90.45085"></polygon>
+        </g>
+        <g id="circle" transform="translate(200.000000, 25.000000)" stroke="#000000" fill-rule="nonzero" stroke-width="4" fill="#E25454">
+            <circle id="element" cx="35" cy="35" r="35"></circle>
+        </g>
+        <g id="triangle" transform="translate(114.000000, 60.000000)" stroke-width="4" stroke="#000000" fill="#6D6BFF" fill-rule="nonzero">
+            <polygon id="element" points="42 0 84 84 0 84"></polygon>
+        </g>
+        <g id="smiley" transform="translate(219.000000, 107.000000)">
+            <circle id="head" stroke="#000000" fill="#FFF14A" cx="37.5" cy="37.5" r="37.5"></circle>
+            <ellipse id="eye" fill="#000000" cx="21" cy="24" rx="4" ry="7"></ellipse>
+            <ellipse id="eye" fill="#000000" cx="54" cy="24" rx="4" ry="7"></ellipse>
+            <path d="M13,44.856953 C21.2040771,53.1381083 29.5509796,57.2060512 38.0407077,57.0607818 C46.5304358,56.9155124 54.8773384,52.5619185 63.0814154,44" id="Path-2" stroke="#000000" stroke-width="3"></path>
+        </g>
     </g>
 </svg>

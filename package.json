@@ -1,0 +1,23 @@
+{
+  "name": "sksvg",
+  "version": "1.0.0",
+  "description": "SVG util that can load SVG sprites from files and clone its elements by id",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaack/SkSvg.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaack/SkSvg/issues"
+  },
+  "homepage": "https://github.com/shaack/SkSvg#readme",
+  "devDependencies": {
+    "steal": "^1.6.0",
+    "steal-tools": "^1.9.2"
+  }
+}

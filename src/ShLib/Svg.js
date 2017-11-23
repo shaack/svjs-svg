@@ -41,7 +41,7 @@ export class Svg {
      * @param element
      */
     static removeElement(element) {
-        element.parent().removeChild(element);
+        element.parentNode.removeChild(element);
     }
 
     /**
@@ -93,7 +93,6 @@ export class Svg {
                 }
             });
             console.log(spriteSvg);
-
         }
     }
 }

@@ -92,7 +92,6 @@ export class Svg {
                     defs.appendChild(elementNode);
                 }
             });
-            console.log(spriteSvg);
         }
     }
 }

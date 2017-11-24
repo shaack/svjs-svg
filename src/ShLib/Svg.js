@@ -51,7 +51,7 @@ export class Svg {
         const request = new XMLHttpRequest();
         request.open("GET", url);
         request.send();
-        request.onload = (e) => {
+        request.onload = () => {
             const response = request.response;
             const parser = new DOMParser();
             const svgDom = parser.parseFromString(response, "image/svg+xml");
@@ -67,18 +67,18 @@ export class Svg {
             // filter relevant nodes
             elementIds.forEach((elementId) => {
                 let elementNode = svgDom.getElementById(elementId);
-                if(!elementNode) {
+                if (!elementNode) {
                     console.error("error, node id=" + elementId + " not found in sprite");
                 } else {
                     // remove transform
                     elementNode.removeAttribute("transform");
-                    if(!elementNode.hasAttribute("fill")) {
+                    if (!elementNode.hasAttribute("fill")) {
                         elementNode.setAttribute("fill", "none"); // bugfix for Sketch SVGs
                     }
                     // filter all ids in childs of the node
                     let filterChilds = (childNodes) => {
                         childNodes.forEach((childNode) => {
-                            if(childNode.nodeType === Node.ELEMENT_NODE) {
+                            if (childNode.nodeType === Node.ELEMENT_NODE) {
                                 childNode.removeAttribute("id");
                                 if (childNode.hasChildNodes()) {
                                     filterChilds(childNode.childNodes);

@@ -66,7 +66,7 @@ export class Svg {
             spriteSvg.removeAttribute("height");
             const defs = this.addElement(spriteSvg, "defs");
             // filter relevant nodes
-            elementIds.forEach((elementId) => {
+            new Set(elementIds).forEach((elementId) => {
                 let elementNode = svgDom.getElementById(elementId);
                 if (!elementNode) {
                     console.error("error, node id=" + elementId + " not found in sprite");

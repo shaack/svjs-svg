@@ -3,7 +3,7 @@
  * Date: 23.11.2017
  */
 
-import {Svg} from "./src/SVjs/Svg"
+import {Svg} from "./src/svjs/Svg"
 
 // Draw rect
 

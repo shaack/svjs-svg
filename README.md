@@ -1,4 +1,4 @@
-# SVjs-Svg
+# svjs-svg
   
 A simple SVG-tool, which can render SVG elements and load sprites from external files. 
 Removes transformations for the main elements, deletes unnecessary and maybe duplicate ids.

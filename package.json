@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shaack/SVjs-Svg.git"
+    "url": "git+https://github.com/shaack/svjs-svg.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shaack/SVjs-Svg/issues"
+    "url": "https://github.com/shaack/svjs-svg/issues"
   },
-  "homepage": "https://github.com/shaack/SVjs-Svg#readme",
+  "homepage": "https://github.com/shaack/svjs-svg#readme",
   "devDependencies": {
     "steal": "^1.6.0",
     "steal-tools": "^1.9.2"

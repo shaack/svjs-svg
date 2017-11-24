@@ -1,21 +1,21 @@
 {
-  "name": "sksvg",
+  "name": "svjs-svg",
   "version": "1.0.0",
-  "description": "SVG util that can load SVG sprites from files and clone its elements by id",
+  "description": "A simple SVG-tool, which can render SVG elements and load sprites from external files.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shaack/SkSvg.git"
+    "url": "git+https://github.com/shaack/SVjs-Svg.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shaack/SkSvg/issues"
+    "url": "https://github.com/shaack/SVjs-Svg/issues"
   },
-  "homepage": "https://github.com/shaack/SkSvg#readme",
+  "homepage": "https://github.com/shaack/SVjs-Svg#readme",
   "devDependencies": {
     "steal": "^1.6.0",
     "steal-tools": "^1.9.2"

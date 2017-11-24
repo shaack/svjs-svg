@@ -8,7 +8,7 @@ import {Svg} from "./src/SVjs/Svg"
 // Draw rect
 
 let svg1 = Svg.createSvg(document.getElementById("container1"));
-let rect = Svg.addElement(svg1, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});
+Svg.addElement(svg1, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});
 
 // Draw Elements from Sprite with `use`
 

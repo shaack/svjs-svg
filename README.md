@@ -1,11 +1,12 @@
 # SVjs-Svg
   
-A simple SVG-tool, can load sprites from external files. Written in ECMA 6 vanilla JS
-(uses StealJS to compile). 
+A simple SVG-tool, which can render SVG elements and load sprites from external files. 
+Removes transformations for the main elements, deletes unnecessary and maybe duplicate ids.
+Written in vanilla ECMAScript 6 (uses StealJS to compile). 
 
-**Fast, small, no runtime dependencies.** (< 100 lines of code)
+**It is fast, small (< 100 lines of code) and has no runtime dependencies.**
 
-Examples in [index.html](index.html) and [index.js](index.js)
+Examples, see [index.html](index.html) and [index.js](index.js)
 
 ## Draw a simple rect
 

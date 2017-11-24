@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ShLib Svg</title>
+    <title>SVjs-Svg</title>
     <style type="text/css">
         body {
             font-family: sans-serif;
@@ -10,12 +10,14 @@
     </style>
 </head>
 <body>
-<h1>ShLib Svg</h1>
-<p>SVG tool with loading Sprites from external files. Written in ECMA5 with StealJS. Fast, small, no runtime
+<h1>SVjs-Svg</h1>
+<p>SVG tool with loading Sprites from external files. Written in vanilla ECMAScript 6 with StealJS. Fast, small, no runtime
     dependencies.</p>
-<p>Examples in <a href="index.js">index.js</a></p>
+<p>This page uses the script in <a href="index.js">index.js</a></p>
 <h2>Draw a simple rect:</h2>
-<pre>Svg.addElement(svg, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});</pre>
+<pre>
+Svg.addElement(svg, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});
+</pre>
 <div id="container1" style="width: 80px; height: 70px;"></div>
 <h2>Draw Elements from Sprite (<a href="./assets/sprite.svg">sprite.svg</a>):</h2>
 <pre>

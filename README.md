@@ -2,7 +2,7 @@
   
 A simple SVG-tool, which can render SVG elements and load sprites from external files. 
 Removes transformations for the main elements, deletes unnecessary and maybe duplicate ids.
-Written in vanilla ECMAScript 6 (uses StealJS to compile). 
+Written in vanilla ECMAScript 6 (uses [StealJS](https://stealjs.com/) to compile). 
 
 **It is fast, small (< 100 lines of code) and has no runtime dependencies.**
 

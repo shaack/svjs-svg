@@ -22,10 +22,12 @@ Svg.addElement(svg, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});
 <div id="container1" style="width: 80px; height: 70px;"></div>
 <h2>Draw Elements from Sprite (<a href="./assets/sprite.svg">sprite.svg</a>):</h2>
 <pre>
-Svg.loadSprite("./assets/sprite.svg", ["star", "circle", "triangle", "smiley"]);
-Svg.addElement(svg2, "use", {"href": "#triangle", x: 10, y: 10});
-Svg.addElement(svg2, "use", {"href": "#smiley", x: 100, y: 10});
-Svg.addElement(svg2, "use", {"href": "#smiley", transform: "translate(200,10) scale(0.5)"});
+let svg2 = Svg.createSvg(document.getElementById("container2"));
+Svg.loadSprite("./assets/sprite.svg", ["star", "circle", "triangle", "smiley"], () => {
+    Svg.addElement(svg2, "use", {"href": "#triangle", x: 10, y: 10});
+    Svg.addElement(svg2, "use", {"href": "#smiley", x: 100, y: 10});
+    Svg.addElement(svg2, "use", {"href": "#smiley", transform: "translate(200,10) scale(0.5)"});
+});
 </pre>
 <div id="container2" style="width: 300px; height: 100px;"></div>
 <h3>Animate Elements from Sprite</h3>

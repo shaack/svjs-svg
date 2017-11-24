@@ -46,8 +46,9 @@ export class Svg {
      * Load sprite into html document (as `svg/defs), elements can be referenced by `use` from all Svgs in page
      * @param url
      * @param elementIds array of element-ids, relevant for `use` in the svgs
+     * @param callback called after successful load, parameter is the svg element
      */
-    static loadSprite(url, elementIds) {
+    static loadSprite(url, elementIds, callback) {
         const request = new XMLHttpRequest();
         request.open("GET", url);
         request.send();
@@ -90,6 +91,7 @@ export class Svg {
                     defs.appendChild(elementNode);
                 }
             });
-        }
+            callback(spriteSvg);
+        };
     }
 }

@@ -20,7 +20,7 @@
 Svg.addElement(svg, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});
 </pre>
 <div id="container1" style="width: 80px; height: 70px;"></div>
-<h2>Draw Elements from Sprite (<a href="./assets/sprite.svg">sprite.svg</a>):</h2>
+<h2>Use Elements from Sprite (<a href="./assets/sprite.svg">sprite.svg</a>):</h2>
 <pre>
 let svg2 = Svg.createSvg(document.getElementById("container2"));
 Svg.loadSprite("./assets/sprite.svg", ["star", "circle", "triangle", "smiley"], () => {
@@ -30,7 +30,7 @@ Svg.loadSprite("./assets/sprite.svg", ["star", "circle", "triangle", "smiley"], 
 });
 </pre>
 <div id="container2" style="width: 300px; height: 100px;"></div>
-<h3>Animate Elements from Sprite</h3>
+<h2>Animate Elements from Sprite</h2>
 <pre>
 let star = Svg.addElement(svg3, "use", {"href": "#star", x: -47, y: -45, transform: "translate(60,60)"});
 Svg.addElement(star, "animateTransform", {

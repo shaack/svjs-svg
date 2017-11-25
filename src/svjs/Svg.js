@@ -5,6 +5,10 @@
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
+if (typeof NodeList.prototype.forEach !== "function") { // IE
+    NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
 export class Svg {
 
     /**
@@ -28,11 +32,11 @@ export class Svg {
      */
     static addElement(parent, name, attributes) {
         let element = document.createElementNS(SVG_NAMESPACE, name);
-        if(name === "use") {
+        if (name === "use") {
             attributes["xlink:href"] = attributes["href"]; // fix for safari
         }
         for (let attribute in attributes) {
-            if(attribute.indexOf(":") !== -1) {
+            if (attribute.indexOf(":") !== -1) {
                 const value = attribute.split(":");
                 element.setAttributeNS("http://www.w3.org/1999/" + value[0], value[1], attributes[attribute]);
             } else {
@@ -75,15 +79,13 @@ export class Svg {
             spriteSvg.removeAttribute("height");
             const defs = this.addElement(spriteSvg, "defs");
             // filter relevant nodes
-            new Set(elementIds).forEach((elementId) => {
+            elementIds.forEach((elementId) => {
                 let elementNode = svgDom.getElementById(elementId);
                 if (!elementNode) {
                     console.error("error, node id=" + elementId + " not found in sprite");
                 } else {
                     const transformList = elementNode.transform.baseVal;
-                    console.log(transformList, transformList.numberOfItems);
                     for (let i = 0; i < transformList.numberOfItems; i++) {
-                        console.log(i, transformList.getItem(i));
                         const transform = transformList.getItem(i);
                         // re-transform items on grid todo test in IE
                         if (transform.type === 2) {

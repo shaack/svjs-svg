@@ -87,10 +87,9 @@ export class Svg {
                     const transformList = elementNode.transform.baseVal;
                     for (let i = 0; i < transformList.numberOfItems; i++) {
                         const transform = transformList.getItem(i);
-                        // re-transform items on grid todo test in IE
+                        // re-transform items on grid
                         if (transform.type === 2) {
-                            transform.matrix.e = transform.matrix.e % grid;
-                            transform.matrix.f = transform.matrix.f % grid;
+                            transform.setTranslate(transform.matrix.e % grid, transform.matrix.f % grid);
                         }
                     }
                     if (!elementNode.hasAttribute("fill")) {

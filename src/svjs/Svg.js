@@ -3,7 +3,7 @@
  * Date: 23.11.2017
  */
 
-const NAMESPACE = "http://www.w3.org/2000/svg";
+const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
 export class Svg {
 
@@ -13,7 +13,7 @@ export class Svg {
      * @returns {Element}
      */
     static createSvg(containerElement) {
-        let svg = document.createElementNS(NAMESPACE, "svg");
+        let svg = document.createElementNS(SVG_NAMESPACE, "svg");
         svg.setAttribute("width", "100%");
         svg.setAttribute("height", "100%");
         containerElement.appendChild(svg);
@@ -27,9 +27,17 @@ export class Svg {
      * @returns {Element}
      */
     static addElement(parent, name, attributes) {
-        let element = document.createElementNS(NAMESPACE, name);
+        let element = document.createElementNS(SVG_NAMESPACE, name);
+        if(name === "use") {
+            attributes["xlink:href"] = attributes["href"]; // fix for safari
+        }
         for (let attribute in attributes) {
-            element.setAttribute(attribute, attributes[attribute]);
+            if(attribute.indexOf(":") !== -1) {
+                const value = attribute.split(":");
+                element.setAttributeNS("http://www.w3.org/1999/" + value[0], value[1], attributes[attribute]);
+            } else {
+                element.setAttribute(attribute, attributes[attribute]);
+            }
         }
         parent.appendChild(element);
         return element;
@@ -47,8 +55,9 @@ export class Svg {
      * @param url
      * @param elementIds array of element-ids, relevant for `use` in the svgs
      * @param callback called after successful load, parameter is the svg element
+     * @param grid the grid size of the sprite
      */
-    static loadSprite(url, elementIds, callback) {
+    static loadSprite(url, elementIds, callback, grid = 1) {
         const request = new XMLHttpRequest();
         request.open("GET", url);
         request.send();
@@ -71,8 +80,17 @@ export class Svg {
                 if (!elementNode) {
                     console.error("error, node id=" + elementId + " not found in sprite");
                 } else {
-                    // remove transform
-                    elementNode.removeAttribute("transform");
+                    const transformList = elementNode.transform.baseVal;
+                    console.log(transformList, transformList.numberOfItems);
+                    for (let i = 0; i < transformList.numberOfItems; i++) {
+                        console.log(i, transformList.getItem(i));
+                        const transform = transformList.getItem(i);
+                        // re-transform items on grid todo test in IE
+                        if (transform.type === 2) {
+                            transform.matrix.e = transform.matrix.e % grid;
+                            transform.matrix.f = transform.matrix.f % grid;
+                        }
+                    }
                     if (!elementNode.hasAttribute("fill")) {
                         elementNode.setAttribute("fill", "none"); // bugfix for Sketch SVGs
                     }

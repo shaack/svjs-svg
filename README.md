@@ -8,6 +8,8 @@ Written in vanilla ECMAScript 6 (uses [StealJS](https://stealjs.com/) to compile
 
 Examples, see [index.html](index.html) and [index.js](index.js)
 
+Demo: http://shaack.com/projekte/svjs-svg/
+
 ## Draw a simple rect
 
 ```

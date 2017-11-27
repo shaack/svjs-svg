@@ -1,8 +1,8 @@
 {
   "name": "svjs-svg",
   "version": "1.0.0",
-  "description": "A simple SVG-tool, which can render SVG elements and load sprites from external files.",
-  "main": "index.js",
+  "description": "A simple SVG-tool, which can render SVG elements and load sprites from external files. Written as ES6 module.",
+  "main": "src/svjs/Svg.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,14 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/shaack/svjs-svg.git"
   },
-  "author": "",
+  "author": "Stefan Haack (http://shaack.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/shaack/svjs-svg/issues"
   },
-  "homepage": "https://github.com/shaack/svjs-svg#readme",
-  "devDependencies": {
-    "steal": "^1.6.0",
-    "steal-tools": "^1.9.2"
-  }
+  "homepage": "https://github.com/shaack/svjs-svg#readme"
 }

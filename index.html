@@ -12,17 +12,16 @@
 <body>
 <h1>svjs-svg</h1>
 <p>A simple SVG-tool, which can render SVG elements and load sprites from external files.
-    Removes transformations for the main elements, deletes unnecessary and maybe duplicate ids.
-    Written in vanilla ECMAScript 6 (uses <a href="https://stealjs.com/">StealJS</a> to compile).</p>
-<p>This page uses the script in <a href="index.js">index.js</a></p>
+    Removes transformations from the sprite-elements, deletes unnecessary and maybe duplicate ids.
+    Written as "vanilla" ES6-Module.</p>
+<p>Repository: <a href="https://github.com/shaack/svjs-svg">https://github.com/shaack/svjs-svg</a></p>
 <h2>Draw a simple rect:</h2>
 <pre>
 Svg.addElement(svg, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});
 </pre>
 <div id="container1" style="width: 80px; height: 70px;"></div>
-<h2>Use Elements from Sprite (<a href="./assets/sprite.svg">sprite.svg</a>):</h2>
+<h2>Load and &lt;use&gt; Elements from Sprite (<a href="./assets/sprite.svg">sprite.svg</a>):</h2>
 <pre>
-let svg2 = Svg.createSvg(document.getElementById("container2"));
 Svg.loadSprite("./assets/sprite.svg", ["star", "circle", "triangle", "smiley"], () => {
     Svg.addElement(svg2, "use", {"href": "#triangle", x: 10, y: 10});
     Svg.addElement(svg2, "use", {"href": "#smiley", x: 100, y: 10});
@@ -40,6 +39,35 @@ Svg.addElement(star, "animateTransform", {
 Svg.addElement(star, "animateMotion", {dur: "10s", values: "0,0; 250,0; 0,0", repeatCount: "indefinite"});
 </pre>
 <div id="container3" style="width: 400px; height: 120px;"></div>
-<script src="node_modules/steal/steal.js"></script>
+<script type="module">
+    import {Svg} from "./src/svjs/Svg.js";
+
+    // Draw rect
+
+    let svg1 = Svg.createSvg(document.getElementById("container1"));
+    Svg.addElement(svg1, "rect", {x: 10, y: 10, width: 50, height: 50, fill: "red"});
+
+    // Load sprite
+
+    let svg2 = Svg.createSvg(document.getElementById("container2"));
+    Svg.loadSprite("./assets/sprite.svg", ["star", "circle", "triangle", "smiley"], (spriteSvg) => {
+
+        // Draw elements from sprite with `use`
+
+        Svg.addElement(svg2, "use", {"href": "#triangle", x: 10, y: 10});
+        Svg.addElement(svg2, "use", {"href": "#smiley", x: 100, y: 10});
+        Svg.addElement(svg2, "use", {"href": "#smiley", transform: "translate(200,10) scale(0.5)"});
+
+        // Animate element from Sprite
+
+        let svg3 = Svg.createSvg(document.getElementById("container3"));
+        let star = Svg.addElement(svg3, "use", {"href": "#star", x: -47, y: -45, transform: "translate(60,60)"});
+        Svg.addElement(star, "animateTransform", {
+            attributeName: "transform", type: "rotate",
+            values: "0 0 0; 360 0 0", additive: "sum", dur: "6s", repeatCount: "indefinite"
+        });
+        Svg.addElement(star, "animateMotion", {dur: "10s", values: "0,0; 250,0; 0,0", repeatCount: "indefinite"});
+    });
+</script>
 </body>
 </html>

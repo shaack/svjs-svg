@@ -6,8 +6,6 @@ Written as "vanilla" ES6-Module.
 
 **It is fast, small (< 100 lines of code) and has no runtime dependencies.**
 
-Examples, see [index.html](index.html)
-
 Demo: http://shaack.com/projekte/svjs-svg/
 
 ## Draw a simple rect

@@ -49,6 +49,7 @@ export class Svg {
     }
 
     /**
+     * Remove an Element from a SVG DOM
      * @param element
      */
     static removeElement(element) {
@@ -76,8 +77,6 @@ export class Svg {
             // add relevant nodes to sprite-svg
             const spriteSvg = this.createSvg(document.body);
             spriteSvg.setAttribute("style", "display: none");
-            spriteSvg.removeAttribute("width");
-            spriteSvg.removeAttribute("height");
             const defs = this.addElement(spriteSvg, "defs");
             // filter relevant nodes
             elementIds.forEach((elementId) => {

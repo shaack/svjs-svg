@@ -1,6 +1,6 @@
 {
   "name": "svjs-svg",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A simple SVG-tool, which can render SVG elements and load sprites from external files. Written as ES6 module.",
   "main": "src/svjs/Svg.js",
   "scripts": {

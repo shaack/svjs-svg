@@ -19,9 +19,9 @@ export class Svg {
     static createSvg(containerElement = null) {
         let svg = document.createElementNS(SVG_NAMESPACE, "svg");
         if(containerElement) {
-            containerElement.appendChild(svg);
             svg.setAttribute("width", "100%");
             svg.setAttribute("height", "100%");
+            containerElement.appendChild(svg);
         }
         return svg;
     }

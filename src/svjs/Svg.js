@@ -16,11 +16,13 @@ export class Svg {
      * @param containerElement
      * @returns {Element}
      */
-    static createSvg(containerElement) {
+    static createSvg(containerElement = null) {
         let svg = document.createElementNS(SVG_NAMESPACE, "svg");
-        svg.setAttribute("width", "100%");
-        svg.setAttribute("height", "100%");
-        containerElement.appendChild(svg);
+        if(containerElement) {
+            containerElement.appendChild(svg);
+            svg.setAttribute("width", "100%");
+            svg.setAttribute("height", "100%");
+        }
         return svg;
     }
 

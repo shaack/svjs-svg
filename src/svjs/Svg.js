@@ -73,9 +73,6 @@ export class Svg {
             const response = request.response;
             const parser = new DOMParser();
             const svgDom = parser.parseFromString(response, "image/svg+xml");
-            if (svgDom.childNodes[0].nodeName !== "svg") {
-                console.error("error loading svg, not valid, root node must be <svg>");
-            }
             // add relevant nodes to sprite-svg
             const spriteSvg = this.createSvg(document.body);
             spriteSvg.setAttribute("style", "display: none");

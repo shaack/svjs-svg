@@ -91,9 +91,6 @@ export class Svg {
                             transform.setTranslate(transform.matrix.e % grid, transform.matrix.f % grid);
                         }
                     }
-                    if (!elementNode.hasAttribute("fill")) {
-                        elementNode.setAttribute("fill", "none"); // bugfix for Sketch SVGs
-                    }
                     // filter all ids in childs of the node
                     let filterChilds = (childNodes) => {
                         childNodes.forEach((childNode) => {

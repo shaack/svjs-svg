@@ -14,7 +14,7 @@
         <g id="triangle" transform="translate(114.000000, 60.000000)" stroke-width="4" stroke="#000000" fill="#6D6BFF" fill-rule="nonzero">
             <polygon id="element" points="42 0 84 84 0 84"></polygon>
         </g>
-        <g id="smiley" transform="translate(219.000000, 107.000000)">
+        <g id="smiley" transform="translate(219.000000, 107.000000)" fill="none">
             <circle id="head" stroke="#000000" fill="#FFF14A" cx="37.5" cy="37.5" r="37.5"></circle>
             <ellipse id="eye" fill="#000000" cx="21" cy="24" rx="4" ry="7"></ellipse>
             <ellipse id="eye" fill="#000000" cx="54" cy="24" rx="4" ry="7"></ellipse>

@@ -8,7 +8,7 @@
     "svjs"
   ],
   "description": "A simple SVG-tool, which can render SVG elements and load sprites from external files. Written as ES6 module.",
-  "main": "src/svjs/Svg.js",
+  "main": "src/svjs-svg/Svg.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,3 +1,5 @@
+Deprecated, moved to https://github.com/shaack/cm-web-modules
+
 # svjs-svg
   
 A simple SVG-tool, which can render SVG elements and load sprites from external files. 
